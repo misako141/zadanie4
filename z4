@@ -1,0 +1,33 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+
+namespace zadanie4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var list1 = new ArrayList{"Г", 12, "ь", 3, 115, 6, "У", 0, "Л", "н", 11, "Я", 77, -12, "Е", "y", "В", 87 };
+            var list2 = new ArrayList();
+            for ( int i = 0; i < list1.Count; i++){
+                int a;
+                string b = list1[i].ToString();
+                bool c = int.TryParse(b, out a);
+                if (c == false){
+                    if (b == b.ToUpper()){
+                        list2.Add(list1[i]);
+                        list1.RemoveAt(i);
+                    }
+                    else {
+                        list1.RemoveAt(i);
+                    }
+                } 
+            }
+            Console.Write("Заглавные буквы: ");
+            for (int i = 0; i < list2.Count; i++){
+                Console.Write(list2[i] + " ");
+            }
+        }
+    }
+}
